@@ -1,7 +1,7 @@
 ---
 title: article_test
 tags:
-  - ''
+  - 'test'
 private: true
 updated_at: ''
 id: null

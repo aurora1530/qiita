@@ -121,6 +121,29 @@ mpint: 鍵交換によって生成された共有鍵
 
 ### SSH_MSG_KEXINIT
 
+SSH_MSG_KEXINIT は SSH で使う各種暗号アルゴリズムを合意するためのメッセージです。 　
+公開鍵認証では、前述したとおりこのメッセージのペイロードがセッション識別子の生成に使われます。  
+また、その生成に使うハッシュ関数は、下記の `kex_algorithms` で合意されたもの（鍵交換に使うハッシュ関数）です。  
+
+今回の話では下記の情報はあまり重要ではありません。
+
+```plaintext
+byte: SSH_MSG_KEXINIT（鍵交換の初期化メッセージを表す値）
+byte[16]: ランダムバイト列
+name-list: kex_algorithms（鍵交換アルゴリズム）
+name-list: server_host_key_algorithms（サーバーのホストキーのアルゴリズム）
+name-list: encryption_algorithms_client_to_server（クライアントからサーバーへの暗号化アルゴリズム）
+name-list: encryption_algorithms_server_to_client（サーバーからクライアントへの暗号化アルゴリズム）
+name-list: mac_algorithms_client_to_server（クライアントからサーバーへのメッセージ認証コードアルゴリズム）
+name-list: mac_algorithms_server_to_client（サーバーからクライアントへのメッセージ認証コードアルゴリズム）
+name-list: compression_algorithms_client_to_server（クライアントからサーバーへの圧縮アルゴリズム）
+name-list: compression_algorithms_server_to_client（サーバーからクライアントへの圧縮アルゴリズム）
+name-list: languages_client_to_server（クライアントからサーバーへの言語）
+name-list: languages_server_to_client（サーバーからクライアントへの言語）
+boolean: first_kex_packet_follows(この次に推測された鍵交換メッセージが続くかどうか)
+uint32: 0（将来拡張機能のためのフィールド）
+```
+
 ### mpint
 
 mpintとは、多倍長整数（大きな整数）を表すためのデータ型です。

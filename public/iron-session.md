@@ -2,8 +2,11 @@
 title: iron-session の仕組み
 tags:
   - JavaScript
-private: true
-updated_at: '2025-02-24T15:17:04+09:00'
+  - Node.js
+  - session
+  - 暗号化
+private: false
+updated_at: '2025-02-24T15:17:45+09:00'
 id: 015cdef0fc9c8033c949
 organization_url_name: null
 slide: false
